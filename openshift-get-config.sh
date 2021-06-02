@@ -19,46 +19,6 @@ do
     done
 done
 
-for project in $(oc get projects -o name)
-do
-  for object in $(oc get deployment -o name -n ${project#*/})
-  do
-    oc describe $object -n ${project#*/} > ${project#*/}.deployment.${object#*/}.yaml
-  done
-done
-
-for project in $(oc get projects -o name)
-do
-  for object in $(oc get deploymentconfig -o name -n ${project#*/})
-  do
-    oc describe $object -n ${project#*/} > ${project#*/}.deploymentconfig.${object#*/}.yaml
-  done
-done
-
-for project in $(oc get projects -o name)
-do
-  for object in $(oc get pod -o name -n ${project#*/})
-  do
-    oc describe $object -n ${project#*/} > ${project#*/}.pod.${object#*/}.yaml
-  done
-done
-
-for project in $(oc get projects -o name)
-do
-  for object in $(oc get quota -o name -n ${project#*/})
-  do
-    oc describe $object -n ${project#*/} > ${project#*/}.quota.${object#*/}.yaml
-  done
-done
-
-for project in $(oc get projects -o name)
-do
-  for object in $(oc get ClusterResourceQuota -o name -n ${project#*/})
-  do
-    oc describe $object -n ${project#*/} > ${project#*/}.ClusterResourceQuota.${object#*/}.yaml
-  done
-done
-
 
 
 

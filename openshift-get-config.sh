@@ -19,7 +19,6 @@ do
     done
 done
 
-
 for project in $(oc get projects -o name)
 do
   for object in $(oc get deployment -o name -n ${project#*/})
